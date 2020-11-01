@@ -13,3 +13,7 @@ gem2_state_publisher is ROS/C++ utility package for the Gait-Phase Estimation Mo
 * git clone https://github.com/mrsp/gem2_state_publisher.git
 * catkin_make -DCMAKE_BUILD_TYPE=Release 
 * If you are using catkin tools run: catkin build  --cmake-args -DCMAKE_BUILD_TYPE=Release 
+
+### Run in real-time to provide a synchronized data stream:
+* configure appropriately the config yaml file (in config folder) with the corresponding topics 
+* roslaunch gem2_state_publisher gem2_state_publisher.launch
