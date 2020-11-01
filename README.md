@@ -9,7 +9,7 @@ gem2_state_publisher is ROS/C++ utility package for the Gait-Phase Estimation Mo
 * [Pinocchio](https://github.com/stack-of-tasks/pinocchio) 2.2.1
 
 ## Installing
-* sudo apt-get install ros-<version>-pinocchio
+* sudo apt-get install ros-kinetic-pinocchio
 * git clone https://github.com/mrsp/gem2_state_publisher.git
 * catkin_make -DCMAKE_BUILD_TYPE=Release 
 * If you are using catkin tools run: catkin build  --cmake-args -DCMAKE_BUILD_TYPE=Release 
