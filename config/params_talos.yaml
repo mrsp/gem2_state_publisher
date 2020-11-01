@@ -1,0 +1,64 @@
+#Robot Frames (CHECK URDF)
+base_link: "base_link"
+lfoot: "left_sole_link"
+rfoot: "right_sole_link"
+modelname: "/home/master/talos_walk_ws/src/whole_body_ik/share/urdf/talos_full_v2.urdf"
+#ROS Topic Names
+lleg_imu_topic: "/left_leg_imu"
+rleg_imu_topic: "/right_leg_imu"
+imu_topic: "/base_imu"
+himu_topic: "/camera/imu"
+joint_state_topic: "/joint_states"
+lfoot_force_torque_topic: "/left_ankle_ft"
+rfoot_force_torque_topic: "/right_ankle_ft"
+ground_truth_gait_phase_topic: "/ground_truth/gait_phase"
+#TF from IMU to Base 
+#T_B_I: [0, 1, 0, 0, 1, 0, 0, 0, 0, 0 , -1, 0, 0, 0 ,0, 1]
+T_B_I: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0 ,1 ,0, 0, 0, 0 , 1]
+#For left leg imu
+T_L_I: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0 ,1 ,0, 0, 0, 0 , 1]
+#For right leg imu
+T_R_I: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0 ,1 ,0, 0, 0, 0 , 1]
+#TF from F/T to Left Foot
+T_FT_LL: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0 , 1 , 0, 0, 0 ,0, 1]
+#TF from F/T to Right Foot
+T_FT_RL: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0 , 1 , 0, 0, 0 ,0, 1]
+#ROS Topic Frequencies in Hz
+imu_topic_freq: 100
+leg_imu_topic_freq: 100
+fsr_topic_freq: 100
+joint_topic_freq: 100
+#Steady State Joint Kalman Filter (KF)
+computeJointVelocity: false
+joint_cutoff_freq: 12
+joint_noise_density: 0.5
+#Mahony Filter for attitude
+useHeadIMU: false
+useHeadOrientation: true
+useBaseOrientation: true
+useLLegOrientation: true
+useRLegOrientation: true
+useMahony: true
+Mahony_Kp_base_imu: 4.5
+Mahony_Ki_base_imu: 0.1
+Mahony_Kp_head_imu: 4.5
+Mahony_Ki_head_imu: 0.1
+Mahony_Kp_lleg_imu: 4.5
+Mahony_Ki_lleg_imu: 0.1
+Mahony_Kp_rleg_imu: 4.5
+Mahony_Ki_rleg_imu: 0.1
+#Madgwick Filter for attitude if useMahony is false
+Madgwick_gain_base_imu: 0.3
+Madgwick_gain_lleg_imu: 0.3
+Madgwick_gain_rleg_imu: 0.3
+Madgwick_gain_head_imu: 0.3
+#Filter Params
+gravity: 9.81 #gravity constant (m/s^2)
+maxImuCalibrationCycles: 1000
+maxAttitudeEstimationConvergeCycles: 100
+#Gyro LPF
+useGyroLPF: true
+#Cutt-off Frequencies
+gyro_cut_off_freq: 15.0  #Only if useGyroLPF is true
+#Gyro Moving Average Filter
+maWindow: 14 #buffer size, the larger the smoother and delayed the signal, only if useGyroLPF is false

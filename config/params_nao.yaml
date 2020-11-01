@@ -1,0 +1,76 @@
+#Robot Frames (CHECK URDF)
+base_link: "base_link"
+head_link: "HeadYaw"
+lfoot: "l_sole"
+rfoot: "r_sole"
+modelname: "/home/master/dp_ws/src/serow/share/urdf/nao.urdf"
+#ROS Topic Names
+lleg_imu_topic: "/imu_L_data"
+rleg_imu_topic: "/imu_R_data"
+#imu_topic: "/nao_robot/imu"
+imu_topic: "/imu/data"
+useHeadIMU: True
+#himu_topic: "/camera/imu"
+himu_topic: "/nao_robot/imu"
+joint_state_topic: "/joint_states"
+lfoot_force_torque_topic: "/nao_robot/LLeg/force_torque_states"
+rfoot_force_torque_topic: "/nao_robot/RLeg/force_torque_states"
+#TF from IMU to Base 
+#For nao imu (onboard IMU)
+#T_B_I: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0 ,1 ,0, 0, 0, 0 , 1]
+T_B_I: [0, 0, -1, 0,   -1, 0, 0, 0,    0, 1, 0, 0,  0, 0 ,0, 1]
+#For head imu (realsense IMU)
+#T_H_I: [0, 0, 1, 0,   -1, 0, 0, 0,  0,-1,0,0 , 0,0,0,1]
+T_H_I: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0 , 1 , 0, 0, 0 ,0, 1]
+#For left leg imu
+T_L_I: [ 0.9979,   -0.0573,   -0.0299, 0,  -0.0313,   -0.0241,   -0.9992, 0,   0.0565,    0.9981,   -0.0259, 0, 0,0,0,1]
+#T_L_I: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0 , 1 , 0, 0, 0 ,0, 1]
+
+
+
+#For right leg imu
+T_R_I: [  0.9960,   -0.0730,   -0.0512, 0, -0.0508,    0.0074,   -0.9987,  0, 0.0733,    0.9973,    0.0037,  0, 0, 0, 0, 1]
+#T_R_I: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0 , 1 , 0, 0, 0 ,0, 1]
+
+#TF from F/T to Left Foot
+T_FT_LL: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0 , 1 , 0, 0, 0 ,0, 1]
+#TF from F/T to Right Foot
+T_FT_RL: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0 , 1 , 0, 0, 0 ,0, 1]
+#ROS Topic Frequencies in Hz
+imu_topic_freq: 100
+leg_imu_topic_freq: 100
+fsr_topic_freq: 100
+joint_topic_freq: 100
+#Steady State Joint Kalman Filter (KF)
+computeJointVelocity: true
+joint_cutoff_freq: 16
+joint_noise_density: 0.5
+#Mahony Filter for attitude
+useHeadOrientation: false
+useBaseOrientation: false
+useLLegOrientation: false
+useRLegOrientation: false
+useMahony: true
+Mahony_Kp_base_imu: 4.5
+Mahony_Ki_base_imu: 0.1
+Mahony_Kp_head_imu: 4.5
+Mahony_Ki_head_imu: 0.1
+Mahony_Kp_lleg_imu: 4.5
+Mahony_Ki_lleg_imu: 0.1
+Mahony_Kp_rleg_imu: 4.5
+Mahony_Ki_rleg_imu: 0.1
+#Madgwick Filter for attitude if useMahony is false
+Madgwick_gain_base_imu: 0.3
+Madgwick_gain_lleg_imu: 0.3
+Madgwick_gain_rleg_imu: 0.3
+Madgwick_gain_head_imu: 0.3
+#Filter Params
+gravity: 9.81 #gravity constant (m/s^2)
+maxImuCalibrationCycles: 100
+maxAttitudeEstimationConvergeCycles: 70
+#Gyro LPF
+useGyroLPF: true
+#Cutt-off Frequencies
+gyro_cut_off_freq: 8.0  #Only if useGyroLPF is true
+#Gyro Moving Average Filter
+maWindow: 14 #buffer size, the larger the smoother and delayed the signal, only if useGyroLPF is false

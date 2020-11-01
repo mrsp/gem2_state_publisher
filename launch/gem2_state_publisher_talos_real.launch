@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Call gem2_state_publisher -->
+  <node pkg="gem2_state_publisher" type="gem2_state_publisher" name="gem2_state_publisher" respawn="false" output="screen">
+ 	<!-- Load configurations from YAML file to parameter server -->
+   	 <rosparam file="$(find gem2_state_publisher)/config/params_talos_real.yaml" command="load"/> 
+  </node>
+</launch>
