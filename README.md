@@ -5,14 +5,14 @@ gem2_state_publisher is ROS/C++ utility package for the Gait-Phase Estimation Mo
 GEM2 data aqcuisition in real-time
 [![YouTube Link](img/training.png)  ](https://youtu.be/RjmGkNqykZY)
 
-### Mandatory Topics
+### Published Topics
 * /gem2/rel_base_imu
 * /gem2/rel_CoM_velocity
 * /gem2/rel_LLeg_wrench
 * /gem2/rel_RLeg_wrench
 * /gem2/rel_LLeg_imu
 * /gem2/rel_RLeg_imu
-### Optional Topics
+### Optional Published Topics
 * /gem2/rel_CoM_position
 * /gem2/rel_LLeg_pose
 * /gem2/rel_RLeg_pose
