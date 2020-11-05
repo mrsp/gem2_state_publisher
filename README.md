@@ -1,8 +1,7 @@
 # gem2_state_publisher
 gem2_state_publisher is ROS/C++ utility package for the Gait-Phase Estimation Module 2 (GEM2) available at  https://github.com/mrsp/gem2 to generate the mandatory input and facilitate real-time gait-phase estimation. The code is open-source (BSD License). Please note that this work is an on-going research and thus some parts are not fully developed yet. Furthermore, the code will be subject to changes in the future which could include greater re-factoring.
 
-## Training
-GEM2 data aqcuisition in real-time
+## GEM2 data aqcuisition in real-time
 [![YouTube Link](img/training.png)  ](https://youtu.be/RjmGkNqykZY)
 
 ### Published Topics
